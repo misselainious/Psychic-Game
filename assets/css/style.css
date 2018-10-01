@@ -1,0 +1,35 @@
+body{
+    background-color: #c7d8ec;
+}
+h1{
+    text-align: center;
+    font-style: oblique;
+    font-size: 40px;
+    letter-spacing: .2em;
+    padding: 30px;
+}
+
+#crystal {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+
+}
+#directions{
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+
+}
+
+#userchoice-text,
+#computerchoice-text,
+#pastGuesses-text,
+#guessesRemaining-text,
+#wins-text,
+#losses-text {
+    size: 15px;
+    padding-left: 10px;
+    text-align: center;
+}
