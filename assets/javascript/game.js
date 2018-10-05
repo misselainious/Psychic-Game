@@ -5,12 +5,13 @@ var losses = 0;
 var pastGuesses = [];
 
 
-var computerChoices = ["a", "b", "c", "d"];
+var computerChoices = ["a", "b", "c", "d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 
 
 // Create variables that hold references to the places in the HTML where we want to display things.
 var directionsText = document.getElementById("directions-text");
+var winnerText = document.getElementById("winner-text");
 var userChoiceText = document.getElementById("userchoice-text");
 var computerChoiceText = document.getElementById("computerchoice-text");
 var guessesRemainingText = document.getElementById("guessesRemaining-text");
@@ -30,11 +31,10 @@ document.onkeyup = function (event) {
    // Determines which key was pressed.
    var userGuess = event.key;
 
-   if (!pastGuesses.includes(userGuess)) {
-    pastGuesses.push(userGuess);
+   if (!pastGuesses.includes(userGuess))  {
+    // pastGuesses.push(userGuess);
     pastGuessesText.textContent = pastGuesses;
     guessesRemaining = (guessesRemaining - 1);
-   
 }
    
    console.log(pastGuesses);
@@ -47,7 +47,8 @@ document.onkeyup = function (event) {
      wins++;
      guessesRemaining = 9;
      pastGuesses = "";
-     computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+     computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
+     alert("OMG you're like so psychic! Let's see if you can do it again.");
     } 
 
 
@@ -69,9 +70,10 @@ document.onkeyup = function (event) {
      pastGuesses = "";
      computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
    }
-   
+   computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
 // Display the user and computer guesses, and wins/losses/ties.
+
 
 userChoiceText.textContent = "You chose: " + userGuess;
 pastGuessesText.textContent = "Your previous guesses: " + pastGuesses;
