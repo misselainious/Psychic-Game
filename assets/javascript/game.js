@@ -2,9 +2,11 @@
 var guessesRemaining = 9;
 var wins = 0;
 var losses = 0;
-var pastGuesses = "";
+var pastGuesses = [];
+
 
 var computerChoices = ["a", "b", "c", "d"];
+
 
 
 // Create variables that hold references to the places in the HTML where we want to display things.
@@ -19,32 +21,55 @@ var pastGuessesText = document.getElementById("pastGuesses-text");
 
 // Randomly chooses a choice from the options array. This is the Computer's guess.
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+//START OF GAME
+
 // This function is run whenever the user presses a key.
 document.onkeyup = function (event) {
 
-    
    // Determines which key was pressed.
    var userGuess = event.key;
-   pastGuesses = pastGuesses + event.key + ", ";
+
+   if (!pastGuesses.includes(userGuess)) {
+    pastGuesses.push(userGuess);
+    pastGuessesText.textContent = pastGuesses;
+    guessesRemaining = (guessesRemaining - 1);
+   
+}
+   
    console.log(pastGuesses);
    computerChoiceText.textContent = "";
-
-   
+  
+//    var inGuessArray = pastGuesses.includes(userGuess);
+//    console.log(inGuessArray);
 
    if (userGuess === computerGuess) {
      wins++;
      guessesRemaining = 9;
      pastGuesses = "";
      computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-   } if (userGuess !== computerGuess) {
+    } 
+
+
+    if(!pastGuesses.includes(userGuess)){
+        pastGuesses = pastGuesses + event.key + ", ";
+        }
+     
+   if (userGuess !== computerGuess){
      guessesRemaining--;
-   } if (guessesRemaining < 1) {
+     } 
+     if (pastGuesses.includes(userGuess)){
+         guessesRemaining++;
+     }
+   
+    if (guessesRemaining < 1) {
      losses++;
      computerChoiceText.textContent = "The computer chose: " + computerGuess + ", better luck next time!";
      guessesRemaining = 9;
      pastGuesses = "";
      computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
    }
+   
 
 // Display the user and computer guesses, and wins/losses/ties.
 
