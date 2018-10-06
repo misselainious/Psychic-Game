@@ -1,12 +1,21 @@
 body{
     background-color: #c7d8ec;
 }
+p{
+    font-family: 'Fahkwang', sans-serif;
+    font-size: 20px;
+    line-height: 2em;
+}
 h1{
     text-align: center;
     font-style: oblique;
     font-size: 40px;
     letter-spacing: .2em;
     padding: 30px;
+}
+h5{
+    font-size: 50px;
+    font-family: 'Fahkwang', sans-serif;
 }
 
 #crystal {
